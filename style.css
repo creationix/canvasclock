@@ -3,7 +3,6 @@ body {
     background-color: #000;
 }
 canvas {
-    background-color: #eee;
     width: 320px;
     heght: 480px;
     position: absolute;

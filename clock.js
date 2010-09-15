@@ -2,19 +2,15 @@ function clock(ctx){
   var now = new Date();
   ctx.clearRect(0,0,320,320);
 
-  // Draw nice box around the page
-  ctx.save();
-  ctx.strokeStyle = "rgba(0, 0, 200, 0.5)";  
-  ctx.strokeRect (10, 10, 300, 300);  
-  ctx.restore();
-
   ctx.save();
   ctx.translate(160,160);
   ctx.beginPath();
   ctx.lineWidth = 14;
   ctx.strokeStyle = '#325FA2';
+  ctx.fillStyle = '#eeeeee';
   ctx.arc(0,0,142,0,Math.PI*2,true);
   ctx.stroke();
+  ctx.fill();
 
   ctx.strokeStyle = '#000000';
   // Hour marks

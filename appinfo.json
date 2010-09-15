@@ -1,9 +1,9 @@
 {
-	"id": "com.creationix.builder",
+	"id": "com.creationix.canvasclock",
 	"version": "1.0.0",
 	"vendor": "Creationix",
 	"type": "web",
 	"main": "index.html",
-	"title": "Builder",
+	"title": "CanvasClock",
 	"icon": "icon.png"
 }
