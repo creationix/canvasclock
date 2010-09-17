@@ -1,3 +1,12 @@
+
+function getX(angle) {
+  return -Math.sin(angle + offset + Math.PI);
+}
+function getY(angle) {
+  return Math.cos(angle + offset + Math.PI);
+}
+
+
 function clock(ctx){
   var now = new Date();
   ctx.clearRect(0,0,320,320);
@@ -16,8 +25,8 @@ function clock(ctx){
   // Hour marks
   ctx.lineWidth = 8;
   for (var i=0;i<12;i++){
-    var x = Math.sin(Math.PI/6*i);
-    var y = Math.cos(Math.PI/6*i);
+    var x = getX(Math.PI/6*i);
+    var y = getY(Math.PI/6*i);
     ctx.beginPath();
     ctx.moveTo(x*100,y*100);
     ctx.lineTo(x*125,y*125);
@@ -28,8 +37,8 @@ function clock(ctx){
   ctx.lineWidth = 5;
   for (i=0;i<60;i++){
     if (i%5!=0) {
-      var x = Math.sin(Math.PI/30*i);
-      var y = Math.cos(Math.PI/30*i);
+      var x = getX(Math.PI/30*i);
+      var y = getY(Math.PI/30*i);
       ctx.beginPath();
       ctx.moveTo(x*117,y*117);
       ctx.lineTo(x*125,y*125);
@@ -45,8 +54,8 @@ function clock(ctx){
   ctx.fillStyle = "black";
 
   // write Hours
-  var x = -Math.sin(hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec+Math.PI);
-  var y = Math.cos(hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec+Math.PI);
+  var x = getX(hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec);
+  var y = getY(hr*(Math.PI/6) + (Math.PI/360)*min + (Math.PI/21600)*sec);
   ctx.lineWidth = 14;
   ctx.beginPath();
   ctx.moveTo(x*-20,y*-20);
@@ -54,8 +63,8 @@ function clock(ctx){
   ctx.stroke();
 
   // write Minutes
-  var x = -Math.sin((Math.PI/30)*min + (Math.PI/1800)*sec+Math.PI);
-  var y = Math.cos((Math.PI/30)*min + (Math.PI/1800)*sec+Math.PI);
+  var x = getX((Math.PI/30)*min + (Math.PI/1800)*sec);
+  var y = getY((Math.PI/30)*min + (Math.PI/1800)*sec);
 
   ctx.lineWidth = 10;
   ctx.beginPath();
@@ -64,8 +73,8 @@ function clock(ctx){
   ctx.stroke();
   
   // Write seconds
-  var x = -Math.sin(sec * Math.PI/30+Math.PI);
-  var y = Math.cos(sec * Math.PI/30+Math.PI);
+  var x = getX(sec * Math.PI/30);
+  var y = getY(sec * Math.PI/30);
   ctx.strokeStyle = "#D40000";
   ctx.fillStyle = "#D40000";
   ctx.lineWidth = 6;
